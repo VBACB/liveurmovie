@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión de Diseñadores | CreativeLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/api/placeholder/50/50" alt="Logo" class="h-10 w-10 mr-4">
+                <h1 class="text-2xl font-bold text-gray-800">CreativeLab</h1>
+            </div>
+            <div>
+                <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Sesión de Diseñadores</h2>
+                <p class="text-gray-600 mb-6">
+                    Espacio colaborativo para inspirar, crear y desarrollar conceptos innovadores para nuestra próxima colección.
+                </p>
+                <div class="flex space-x-4">
+                    <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
+                        Ver Proyecto
+                    </button>
+                    <button class="border border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+                        Más Información
+                    </button>
+                </div>
+            </div>
+            <div>
+                <img src="/api/placeholder/600/400" alt="Diseñadores trabajando" class="rounded-lg shadow-xl">
+            </div>
+        </section>
+
+        <section class="mt-16">
+            <h3 class="text-3xl font-bold text-center mb-8">Nuestro Equipo de Diseño</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="/api/placeholder/200/200" alt="Diseñador 1" class="mx-auto rounded-full mb-4 w-32 h-32 object-cover">
+                    <h4 class="font-bold text-xl mb-2">María González</h4>
+                    <p class="text-gray-600">Directora Creativa</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="/api/placeholder/200/200" alt="Diseñador 2" class="mx-auto rounded-full mb-4 w-32 h-32 object-cover">
+                    <h4 class="font-bold text-xl mb-2">Carlos Ramírez</h4>
+                    <p class="text-gray-600">Diseñador Principal</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <img src="/api/placeholder/200/200" alt="Diseñador 3" class="mx-auto rounded-full mb-4 w-32 h-32 object-cover">
+                    <h4 class="font-bold text-xl mb-2">Ana Torres</h4>
+                    <p class="text-gray-600">Especialista en Tendencias</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 CreativeLab. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Iniciar Sesión
+                    </h3>
+                </div>
+                <div class="p-4 md:p-5">
+                    <form class="space-y-4" action="#">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="nombre@empresa.com" required>
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                        </div>
+                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>

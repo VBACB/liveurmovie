@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección de Vestidos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .filter-options select {
+            padding: 0.5rem;
+            margin-right: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .search-box input {
+            padding: 0.5rem;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .dress-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .dress-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dress-image {
+            height: 300px;
+            width: 100%;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .dress-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .dress-info {
+            padding: 1.5rem;
+        }
+        
+        .dress-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .dress-price {
+            font-size: 1.1rem;
+            color: #e91e63;
+            font-weight: bold;
+        }
+        
+        .dress-description {
+            color: #666;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-button:hover {
+            background-color: #222;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .sale-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e91e63;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .collection-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elegancia Boutique</h1>
+        <p class="subtitle">Colección Primavera-Verano 2025</p>
+    </header>
+    
+    <div class="container">
+        <div class="filter-section">
+            <div class="filter-options">
+                <select id="category">
+                    <option value="">Todos los estilos</option>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="noche">Noche</option>
+                    <option value="playa">Playa</option>
+                </select>
+                
+                <select id="size">
+                    <option value="">Todas las tallas</option>
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                </select>
+                
+                <select id="price">
+                    <option value="">Todos los precios</option>
+                    <option value="0-50">0€ - 50€</option>
+                    <option value="50-100">50€ - 100€</option>
+                    <option value="100-200">100€ - 200€</option>
+                    <option value="200+">200€+</option>
+                </select>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Buscar vestidos...">
+            </div>
+        </div>
+        
+        <div class="collection-grid">
+            <!-- Vestido 1 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Floral Primavera">
+                    <div class="sale-tag">-20%</div>
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Floral Primavera</h3>
+                    <p class="dress-price">79,99€</p>
+                    <p class="dress-description">Elegante vestido floral ideal para ocasiones casuales. Disponible en varias tallas.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 2 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido de Noche Azul">
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido de Noche Azul</h3>
+                    <p class="dress-price">149,99€</p>
+                    <p class="dress-description">Espectacular vestido azul para eventos formales. Corte elegante y detallado.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 3 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Casual Verano">
+                    <div class="sale-tag">NUEVO</div>
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Casual Verano</h3>
+                    <p class="dress-price">59,99€</p>
+                    <p class="dress-description">Vestido ligero y cómodo para días de verano. Material transpirable.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 4 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Largo Bohemio">
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Largo Bohemio</h3>
+                    <p class="dress-price">89,99€</p>
+                    <p class="dress-description">Estilo bohemio con estampados únicos. Perfecto para festivales y vacaciones.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 5 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Cocktail Rojo">
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Cocktail Rojo</h3>
+                    <p class="dress-price">119,99€</p>
+                    <p class="dress-description">Deslumbrante vestido rojo para cócteles y eventos semi-formales.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 6 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Playero Blanco">
+                    <div class="sale-tag">-15%</div>
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Playero Blanco</h3>
+                    <p class="dress-price">49,99€</p>
+                    <p class="dress-description">Ligero y fresco vestido blanco ideal para la playa y días calurosos.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 7 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="/api/placeholder/250/300" alt="Vestido Formal Negro">
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Formal Negro</h3>
+                    <p class="dress-price">179,99€</p>
+                    <p class="dress-description">Elegante vestido negro para ocasiones formales. Corte clásico y atemporal.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Vestido 8 -->
+            <div class="dress-card">
+                <div class="dress-image">
+                    <img src="./assets/imgs/movie/boina (1).png" alt="Vestido Mini Verde">
+                    <div class="sale-tag">ÚLTIMO</div>
+                </div>
+                <div class="dress-info">
+                    <h3 class="dress-name">Vestido Mini Verde</h3>
+                    <p class="dress-price">69,99€</p>
+                    <p class="dress-description">Moderno vestido mini en tono verde. Perfecto para salidas nocturnas.</p>
+                    <button class="buy-button">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h3>Elegancia Boutique</h3>
+        <div class="footer-links">
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Política de devoluciones</a>
+            <a href="#">Contacto</a>
+            <a href="#">Tiendas</a>
+        </div>
+        <p>© 2025 Elegancia Boutique. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
